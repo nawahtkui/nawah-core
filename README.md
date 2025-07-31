@@ -20,6 +20,8 @@ contracts/      # Solidity smart contracts
 scripts/        # Deployment & interaction scripts
 test/           # Hardhat & Chai testing
 
+
+
 ## 🔐 Security
 
 This project follows industry-standard security practices:
