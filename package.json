@@ -1,0 +1,21 @@
+{
+  "name": "nawah-core",
+  "version": "1.0.0",
+  "description": "Core smart contracts and backend services for Nawah Token (NWTK).",
+  "main": "services/index.js",
+  "scripts": {
+    "test": "npx hardhat test",
+    "deploy": "npx hardhat run scripts/deploy.js --network hardhat"
+  },
+  "keywords": ["blockchain", "nawah", "token", "web3", "smart-contracts"],
+  "author": "Nawah Foundation",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ethers": "^6.10.0",
+    "hardhat": "^2.22.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0"
+  }
+}
