@@ -1,0 +1,53 @@
+name: Publish Node.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com/
+
+      - name: Rename package file if needed
+        run: |
+          if [ -f "الحزمة.json" ]; then
+            mv الحزمة.json package.json
+          fi
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: |
+          if npm run | grep -q test; then
+            npm test
+          else
+            echo "No test script defined. Skipping tests."
+          fi
+
+      - name: Build project
+        run: |
+          if npm run | grep -q build; then
+            npm run build
+          else
+            echo "No build step defined. Skipping."
+          fi
+
+      - name: Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
