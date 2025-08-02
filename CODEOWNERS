@@ -1,0 +1,25 @@
+# 🛡️ CODEOWNERS – Nawah Project
+
+# المسؤول الافتراضي عن جميع ملفات المشروع
+* @nawahtkui
+
+# مسؤول ملفات الخادم الخلفي
+server.js @nawahtkui
+
+# ملفات البيئة والتكوين
+.env @nawahtkui
+package.json @nawahtkui
+
+# ملفات المسارات (Routes)
+routes/ @nawahtkui
+
+# ملفات المتحكمات (Controllers)
+controllers/ @nawahtkui
+
+# ملفات النماذج (Database Models)
+models/ @nawahtkui
+
+# ملفات التوثيق والأمان
+README.md @nawahtkui
+SECURITY.md @nawahtkui
+.github/ @nawahtkui
