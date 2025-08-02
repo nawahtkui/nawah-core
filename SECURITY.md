@@ -74,3 +74,6 @@ To ensure the safety of your funds and personal data:
 
 This project respects [Responsible Disclosure](https://en.wikipedia.org/wiki/Responsible_disclosure).  
 Special thanks to community contributors and security researchers for keeping the Nawah ecosystem secure.
+
+> ⚠️ البريد الرسمي للإبلاغ عن الثغرات سيُضاف قريبًا. في الوقت الحالي، يُرجى فتح نقاش خاص (Private Discussion) على صفحة المشروع.
+
