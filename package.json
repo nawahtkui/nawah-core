@@ -1,22 +1,41 @@
 {
-  "name": "nawah-core",
+  "name": "@nawahtkui/ns-nawah",
   "version": "1.0.0",
-  "description": "Core smart contracts and backend services for Nawah Token (NWTK).",
-  "main": "services/index.js",
+  "description": "Nawah SDK: WebSocket-based service for decentralized identity and digital interaction.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "npx hardhat test",
-    "deploy": "npx hardhat run scripts/deploy.js --network hardhat"
+    "build": "tsc",
+    "prepare": "npm run build"
   },
-  "keywords": ["blockchain", "nawah", "token", "web3", "smart-contracts"],
-  "author": "Nawah Foundation",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nawahtkui/nawah-core.git"
+  },
+  "author": "Nawah Team <alnwyra@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "dotenv": "^16.3.1",
-    "ethers": "^6.10.0",
-    "hardhat": "^2.22.0"
+  "keywords": [
+    "nawah",
+    "sdk",
+    "websocket",
+    "decentralized",
+    "identity",
+    "angular",
+    "typescript",
+    "token",
+    "nwtk"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
   },
+  "dependencies": {},
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^3.0.0"
+    "typescript": "^5.0.0"
   },
   "publishConfig": {
     "access": "public"
