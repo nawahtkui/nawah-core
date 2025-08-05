@@ -1,5 +1,5 @@
 {
-  "name": "@nawahtkui/ns-nawah",
+  "name": "nawahcoins",
   "version": "1.0.0",
   "description": "Nawah SDK: WebSocket-based service for decentralized identity and digital interaction.",
   "main": "dist/index.js",
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/nawahtkui/nawah-core.git"
   },
-  "author": "Nawah Team <alnwyra@gmail.com>",
+  "author": "Nawah Team <aalnwyra@gmail.com>",
   "license": "MIT",
   "keywords": [
     "nawah",
