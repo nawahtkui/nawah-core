@@ -1,72 +1,118 @@
-# 🧱 Nawah Core
+# 🧱 NawahCoins SDK
 
-Core smart contracts and logic for the Nawah blockchain ecosystem. This repository powers the cultural, financial, and social infrastructure of the Nawah Token (NWTK).
+Official SDK for Nawah Token WebSocket-based interaction and decentralized identity.
 
 ---
 
 ## ⚙️ Features
 
-- Decentralized architecture (BEP-20 & Ethereum-compatible)
-- Modular, secure smart contracts
-- Integration-ready for Web3 dApps
-- NFT + DAO extensions planned
+- Connect to Nawah WebSocket API  
+- Anonymous and authenticated access  
+- Easy integration with Angular and TypeScript projects  
+- Support for real-time decentralized identity management  
 
 ---
 
-## 📁 Structure
+## 📦 Installation
 
 ```bash
-contracts/      # Solidity smart contracts
-scripts/        # Deployment & interaction scripts
-test/           # Hardhat & Chai testing
+npm install nawahcoins
 
-🔐 Security 
+Usage Example
+import { NawahService } from 'nawahcoins';
+
+const nawah = new NawahService();
+
+nawah.init({
+  api: 'ws://localhost:8081/ws',
+  anonToken: '__ANON_TOKEN_f00000000000000000000012',
+  authAttrs: ['email'],
+  appId: 'APP_ID',
+});
+
+API Documentation NawahService 
+
+Service to interact with Nawah WebSocket API for decentralized identity.
+
+🔧 init(options: InitOptions): void 
+
+Initialize the connection to the Nawah server.
+
+OptionTypeDescriptionapistringWebSocket API URLanonTokenstringAnonymous access tokenauthAttrsstring[]List of authentication attributesappIdstringApplication ID
+
+Example
+
+nawah.init({
+  api: 'ws://localhost:8081/ws',
+  anonToken: '__ANON_TOKEN_f00000000000000000000012',
+  authAttrs: ['email'],
+  appId: 'APP_ID',
+});
+
+📡 call(method: string, params?: any): Promise<any> 
+
+Call server API methods dynamically.
+
+ParameterTypeDescriptionmethodstringAPI method nameparamsanyOptional method params
+
+Example:
+
+nawah.call('getUserProfile', { userId: '12345' })
+  .then(profile => console.log('User Profile:', profile));
+
+Events (Observables) 
+
+EventDescriptioninited$Fires when initialization completesauthed$Fires when authentication succeedserror$Fires when an error occurs
+
+Example:
+nawah.inited$.subscribe(() => console.log('Connection initialized'));
+nawah.authed$.subscribe(user => console.log('User authenticated:', user));
+nawah.error$.subscribe(err => console.error('Error:', err));
+
+Project Structure
+nawah-core/
+├── contracts/               # Solidity smart contracts
+├── scripts/                 # Deployment & interaction scripts
+├── test/                    # Smart contract tests
+├── services/                # Backend services and API workers
+├── config/                  # Network configs and environment variables
+├── .env                     # Environment secrets and keys
+├── .gitignore               # Ignore files and folders
+├── hardhat.config.js        # Hardhat setup
+├── package.json             # Project dependencies and metadata
+├── README.md                # This documentation
+├── SECURITY.md              # Security guidelines
+└── LICENSE                  # MIT License
+
+Security 
 
 This project follows industry-standard security practices:
 
 Input validation and sanitization
 
-Rate limiting Secure API keys and tokens
+Rate limiting
 
-Optional Multi-Sig and contract ownership audit
+Secure API keys and token management
 
-📄 License 
+Optional Multi-Signature wallets and contract ownership audits
 
-This project is open-source and available under the MIT License
-
-📁 Project Structure
-
-nawah-core/
-│
-├── contracts/               # العقود الذكية (Solidity)
-│   └── NawahToken.sol
-│
-├── scripts/                 # سكربتات النشر والتفاعل مع العقد
-│   └── deploy.js
-│
-├── test/                    # اختبارات العقود الذكية
-│   └── test.js
-│
-├── services/                # خدمات الربط أو المعالجة الخلفية (API, Workers)
-│   └── index.js
-│
-├── config/                  # إعدادات مخصصة (ربما لشبكات أو متغيرات بيئة)
-│   └── networks.js
-│
-├── .env                     # بيانات البيئة الحساسة (API Keys, Private Keys)
-├── .gitignore               # تجاهل الملفات الخاصة مثل node_modules و .env
-├── hardhat.config.js        # إعدادات Hardhat الأساسية
-├── package.json             # بيانات المشروع واعتماداته
-├── README.md                # توثيق المشروع
-├── SECURITY.md              # وثيقة الأمان
-└── LICENSE                  # الرخصة MIT
-
-
-
-About Nawah 
+🌍 About Nawah 
 
 Nawah is a culturally inspired blockchain initiative focusing on inclusion, empowerment, and legacy through innovation.
+
 Learn more at nawahtoken.org (link placeholder)
+
+License
+
+
+MIT License © Nawah Team
+
+
+
+نسخ الكود
+
+
+
 
 
 
