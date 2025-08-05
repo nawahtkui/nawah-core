@@ -109,8 +109,6 @@ MIT License © Nawah Team
 
 
 
-نسخ الكود
-
 
 
 
