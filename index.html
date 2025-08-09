@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بوابة شراء رموز نواة</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+</head>
+<body style="font-family: sans-serif; background-color: #f9f9f9; color: #333; text-align: center;">
+  <h1>💎 بوابة شراء رموز نواة (NWTK)</h1>
+  <p>السعر: <span id="price">--</span> NWTK لكل 1 BNB</p>
+  <input type="number" id="bnbAmount" placeholder="أدخل الكمية بـBNB" step="0.01" />
+  <button onclick="connectWallet()">اتصال بالمحفظة</button>
+  <button onclick="buyTokens()">شراء الآن</button>
+  <p id="status"></p>
+
+<script>
+const CONFIG = {
+    tokenSaleAddress: "0xYourSaleContractAddressHere",
+    rate: 1000 // مثال: 1000 NWTK لكل 1 BNB
+};
+
+document.getElementById("price").innerText = CONFIG.rate;
+
+let provider, signer;
+
+async function connectWallet() {
+    if (window.ethereum) {
+        provider = new ethers.providers.Web3Provider(window.ethereum);
+        await provider.send("eth_requestAccounts", []);
+        signer = provider.getSigner();
+        document.getElementById("status").innerText = "تم الاتصال بالمحفظة";
+    } else {
+        alert("يرجى تثبيت MetaMask");
+    }
+}
+
+async function buyTokens() {
+    const bnbAmount = document.getElementById("bnbAmount").value;
+    if (!bnbAmount || bnbAmount <= 0) {
+        alert("أدخل كمية صالحة");
+        return;
+    }
+    const saleContract = new ethers.Contract(CONFIG.tokenSaleAddress, [
+        "function buyTokens() public payable"
+    ], signer);
+
+    try {
+        const tx = await saleContract.buyTokens({ value: ethers.utils.parseEther(bnbAmount) });
+        document.getElementById("status").innerText = "جارٍ إرسال المعاملة...";
+        await tx.wait();
+        document.getElementById("status").innerText = "تم الشراء بنجاح ✅";
+    } catch (err) {
+        document.getElementById("status").innerText = "خطأ: " + err.message;
+    }
+}
+</script>
+</body>
+</html>
