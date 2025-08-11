@@ -97,12 +97,9 @@ Secure API keys and token management
 Optional Multi-Signature wallets and contract ownership audits
 
 
-
-## إعداد ملف البيئة (.env)
-1. انسخ الملف `.env.example` إلى `.env`:
-   ```bash
-   cp .env.example .env
-
+Important Notice:
+Never commit or upload your .env file containing secret keys or sensitive information to GitHub or any public repository.
+Always use the .env.example file as a reference to create your local .env file, and fill in the appropriate values that should remain private.
 
 🌍 About Nawah 
 
