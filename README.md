@@ -96,6 +96,14 @@ Secure API keys and token management
 
 Optional Multi-Signature wallets and contract ownership audits
 
+
+
+## إعداد ملف البيئة (.env)
+1. انسخ الملف `.env.example` إلى `.env`:
+   ```bash
+   cp .env.example .env
+
+
 🌍 About Nawah 
 
 Nawah is a culturally inspired blockchain initiative focusing on inclusion, empowerment, and legacy through innovation.
